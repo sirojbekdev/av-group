@@ -1,0 +1,124 @@
+﻿@model AvGroup.Models.PoolForm
+
+@{
+    ViewData["Title"] = "Estimate";
+}
+<div class="container" >
+    <h1>Estimate</h1>
+
+<h4>Pool Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="width" class="control-label"></label>
+                <input asp-for="width" class="form-control" />
+                <span asp-validation-for="width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="length" class="control-label"></label>
+                <input asp-for="length" class="form-control" />
+                <span asp-validation-for="length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="depth" class="control-label"></label>
+                <input asp-for="depth" class="form-control" />
+                <span asp-validation-for="depth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h5>Pool Type:</h5>
+                <label for="overflow" class="control-label">Overflow</label>
+                <input name="PoolType" class="form-check-input me-3" type="radio" value="overflow" id="overflow" checked="checked" />
+                <label for="skimmer" class="control-label">Skimmer</label>
+                <input name="PoolType" id="skimmer" class="form-check-input" type="radio" value="skimmer" />
+                
+                <span asp-validation-for="PoolType" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Waterheating" /> @Html.DisplayNameFor(model => model.Waterheating)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Lighting" /> @Html.DisplayNameFor(model => model.Lighting)
+                </label>
+            </div>
+            <div class="form-group">
+                <h5>Majolica Type:</h5>
+                <label for="European">European</label>
+                <input id="European" name="Majolica" type="radio" class="form-check-input me-3" value="European" />
+                <label for="local">local</label>
+                <input id="local" name="Majolica" type="radio" class="form-check-input" value="local" checked="checked" />
+                <span asp-validation-for="Majolica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeyserNumber" class="control-label">Number of geysers</label>
+                <input asp-for="GeyserNumber" class="form-control" value="0" />
+                <span asp-validation-for="GeyserNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StairsNumber" class="control-label">Number of stairs</label>
+                <input asp-for="StairsNumber" class="form-control" value="0" />
+                <span asp-validation-for="StairsNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Waterslides" /> @Html.DisplayNameFor(model => model.Waterslides)
+                </label>
+            </div>
+            <br />
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Cobra" /> @Html.DisplayNameFor(model => model.Cobra)
+                </label>
+            </div>
+            <br />
+            <div class="form-group">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ContactMe" /> Contact me to get more details
+                </label>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-primary mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
